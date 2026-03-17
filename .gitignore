@@ -1,0 +1,18 @@
+# Node
+node_modules/
+npm-debug.log
+
+# Env
+.env
+
+# Angular
+.angular/
+dist/
+out-tsc/
+
+# VS Code
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
