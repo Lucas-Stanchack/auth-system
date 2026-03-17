@@ -1,0 +1,31 @@
+<section class="login-screen">
+  <div class="login-card">
+    <h2>Login</h2>
+
+    <form [formGroup]="form" (ngSubmit)="login()">
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" formControlName="email" placeholder="Digite seu email" required />
+      </div>
+
+      <div class="form-group">
+        <label>Senha</label>
+        <input type="password" formControlName="senha" placeholder="Digite sua senha" required />
+      </div>
+
+      <button type="submit" class="btn-login">Entrar</button>
+    </form>
+
+    <!-- Botão separado para espaçamento -->
+    <div class="login-footer">
+      <button type="button" class="btn-link" (click)="irParaRecuperacao()">
+        Esqueci minha senha
+      </button>
+      <div class="button-group">
+        <button type="button" class="btn-create-account" (click)="irCriarConta()">
+          Criar Conta
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

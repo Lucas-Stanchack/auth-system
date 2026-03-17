@@ -1,0 +1,103 @@
+/* 1. O fundo com a imagem */
+.dashboard-screen {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 50px 20px;
+  background: url('/assets/background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  position: relative;
+}
+
+/* 2. Camada escura: O segredo é o pointer-events: none */
+.dashboard-screen::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 1;
+  pointer-events: none; /* Faz o mouse "atravessar" essa camada */
+}
+
+/* 3. O Card: Agora acima da camada escura */
+.dashboard-card {
+  position: relative;
+  z-index: 2; /* Garante que o card receba os cliques */
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 500px;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Garante que tudo dentro do card seja clicável */
+.dashboard-card * {
+  position: relative;
+  z-index: 3;
+}
+
+/* Estilos de Botões */
+.btn-logout, .btn-edit {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-logout {
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+}
+
+.btn-edit {
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+}
+
+/* Ajuste do Header */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* Ajuste da lista */
+.user-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.user-list li {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 12px 15px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.search-container {
+  display: flex;
+  justify-content: flex-start; /* Força o alinhamento à esquerda */
+  width: 100%;
+  margin-bottom: 10px;
+}
+.search-input {
+  width: 100%; /* Ou defina um valor fixo como 300px se não quiser que ocupe tudo */
+  max-width: 300px; /* Isso deixa a busca mais elegante e compacta */
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}

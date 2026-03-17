@@ -1,0 +1,21 @@
+<section class="login-screen">
+    <div class="login-card">
+        <h2>Recuperar Senha</h2>
+        <p>Digite seu e-mail para alterar sua senha.</p>
+
+        <form [formGroup]="form" (ngSubmit)="enviarEmail()">
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input id="email" type="email" formControlName="email" placeholder="seuemail@exemplo.com" required>
+            </div>
+
+            <button type="submit" class="btn-login" [disabled]="isSending">
+                {{ isSending ? 'Enviando...' : 'Enviar Instruções' }}
+            </button>
+        </form>
+
+        <button class="btn-link" (click)="router.navigate(['/login'])">
+            Voltar ao Login
+        </button>
+    </div>
+</section>

@@ -1,0 +1,140 @@
+/* Animação do card */
+@keyframes slideFadeIn {
+  0% { opacity: 0; transform: translateY(-30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Tela inteira com fundo visual */
+.create-user-screen {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url('/assets/background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: relative;
+}
+
+/* Overlay escuro para contraste */
+.create-user-screen::before {
+  content:'';
+  position:absolute;
+  top:0; left:0; right:0; bottom:0;
+  background: rgba(0,0,0,0.55);
+  z-index:1;
+}
+
+/* Card central */
+.create-user-card {
+  position: relative;
+  z-index:2;
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  padding: 2.5rem 3rem;
+  border-radius: 16px;
+  box-shadow: 0 16px 50px rgba(0,0,0,0.45);
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+  animation: slideFadeIn 0.6s ease-out;
+}
+
+/* Títulos */
+h2, h3 {
+  color: #f0ecec;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.25);
+}
+
+/* Formulário */
+.form-group {
+  margin-bottom: 1.2rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.3);
+  font-size: 1rem;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  transition: 0.25s;
+}
+
+.form-group input:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 10px rgba(102,126,234,0.35);
+  outline: none;
+  background: rgba(255,255,255,0.15);
+}
+
+/* Botões */
+button {
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 10px;
+  border: none;
+  padding: 0.65rem 1rem;
+  margin-top: 0.7rem;
+  transition: 0.3s;
+  display: block;
+  width: 100%;
+}
+
+/* Botão criar */
+.btn-create {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #fff;
+}
+
+.btn-create:hover {
+  background: linear-gradient(135deg, #5561c2, #5b3c91);
+  transform: translateY(-2px);
+}
+
+/* Botão voltar */
+.btn-back {
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  color: #fff;
+}
+
+.btn-back:hover {
+  background: linear-gradient(135deg, #c0392b, #992d22);
+  transform: translateY(-2px);
+}
+
+/* Lista animada (opcional se usar lista interna) */
+.user-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1rem;
+}
+
+.user-list li {
+  padding: 8px 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  border-radius: 6px;
+  margin-bottom: 6px;
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: slideFadeInItem 0.5s forwards;
+}
+
+.user-list li:nth-child(1) { animation-delay: 0.1s; }
+.user-list li:nth-child(2) { animation-delay: 0.2s; }
+.user-list li:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes slideFadeInItem { to { opacity:1; transform:translateX(0); } }
+
+/* Responsividade */
+@media (max-width:500px) {
+  .create-user-card {
+    padding: 2rem;
+    max-width: 90%;
+  }
+}

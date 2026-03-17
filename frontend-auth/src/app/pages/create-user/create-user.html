@@ -1,0 +1,31 @@
+<section class="create-user-screen">
+  <div class="create-user-card">
+    <h2>Criar Conta</h2>
+
+    <!-- Formulário de criação de usuário -->
+    <form [formGroup]="form" (ngSubmit)="criarUsuario()">
+
+      <div class="form-group">
+        <label for="nome">Nome</label>
+        <input id="nome" type="text" formControlName="nome" placeholder="Digite seu nome" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input id="email" type="email" formControlName="email" placeholder="Digite seu email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="senha">Senha</label>
+        <input id="senha" type="password" formControlName="senha" placeholder="Digite sua senha" required>
+      </div>
+
+      <!-- Botão criar usuário -->
+      <button type="submit" class="btn btn-create">Criar Conta</button>
+
+      <!-- Botão voltar -->
+      <button type="button" class="btn btn-back" (click)="voltarLogin()">Voltar</button>
+
+    </form>
+  </div>
+</section>

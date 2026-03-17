@@ -1,0 +1,22 @@
+<section class="edit-screen">
+  <div class="edit-card">
+    <h2>Editar Usuário</h2>
+
+    <form [formGroup]="form" (ngSubmit)="salvar()">
+      <div class="form-group">
+        <label>Nome</label>
+        <input type="text" formControlName="nome" placeholder="Digite o nome" />
+      </div>
+
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" formControlName="email" placeholder="Digite o email" />
+      </div>
+
+      <div class="button-group">
+        <button type="submit" class="btn-save">Salvar Alterações</button>
+        <button type="button" class="btn-delete" (click)="deletar()">Excluir Usuário</button>
+      </div>
+    </form>
+  </div>
+</section>

@@ -1,0 +1,13 @@
+<section class="login-screen">
+  <div class="login-card">
+    <h2>Nova Senha</h2>
+    <p>Insira sua nova senha abaixo.</p>
+    
+    <form [formGroup]="form" (ngSubmit)="atualizarSenha()">
+      <div class="form-group">
+        <input type="password" formControlName="novaSenha" placeholder="Digite sua nova senha">
+      </div>
+      <button type="submit" class="btn-login">Confirmar</button>
+    </form>
+  </div>
+</section>
